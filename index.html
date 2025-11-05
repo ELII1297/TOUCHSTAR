@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica Touchstart</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #d24242;
+        }
+        .circulo {
+            position: absolute;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const body = document.body;
+
+        body.addEventListener('touchstart', (e) => {
+            const x = e.touches[0].clientX;
+            const y = e.touches[0].clientY;
+            const circulo = document.createElement('div');
+            circulo.classList.add('circulo');
+            circulo.style.left = ${x - 25}px;
+            circulo.style.top = ${y - 25}px;
+            circulo.style.background = getRandomColor();
+            body.appendChild(circulo);
+        });
+
+        function getRandomColor() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return rgb(${r}, ${g}, ${b});
+        }
+    </script>
+</body>
+</html>
